@@ -24,6 +24,10 @@ def triangle(a, b, c)
 		raise TriangleError, "can't have side length < 0"
 	end
 
+	if a + b <= c || b + c <= a || a + c <= b
+		raise TriangleError, "nope"
+	end
+
 	if sides.uniq.count == 1
 		:equilateral
 	elsif sides.uniq.count == 2
